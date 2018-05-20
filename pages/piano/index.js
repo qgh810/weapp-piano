@@ -43,9 +43,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    // 初始化按钮列表
     this.setData({
       buttons: this.getButtons()
     })
+    // 初始化音频对象
     this.audios = {}
     this.data.buttons.forEach(item => {
       this.audios[item.key] = wx.createAudioContext(item.key)

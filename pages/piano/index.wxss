@@ -1,7 +1,17 @@
 /* pages/game/index.wxss */
+.piano-root {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
 .piano-root .piano {
-  text-align: right;
-  margin-left: 25%;
+  width: 75%;
+  position: relative;
+  /* text-align: right;
+  margin-left: 25%; */
   border-left: 1px solid #ccc;
 }
 .piano-root .button {
