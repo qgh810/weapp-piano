@@ -17,6 +17,7 @@
    <!-- <audio src="{{test}}" id="A4"></audio>  -->
    <audio
     wx:for="{{buttons}}"
+    wx:if="{{item.type === 'white'}}"
     src="{{item.musicSrc}}" 
     id="{{item.key}}"
     wx:key="item.key"

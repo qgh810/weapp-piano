@@ -50,6 +50,7 @@ Page({
     // 初始化音频对象
     this.audios = {}
     this.data.buttons.forEach(item => {
+      if (item.type !== 'white') return
       this.audios[item.key] = wx.createAudioContext(item.key)
     })
   },
