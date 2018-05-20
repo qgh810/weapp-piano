@@ -5,6 +5,7 @@
       wx:for="{{buttons}}"
       wx:key="item.key"
       class="button {{item.type}}"
+      hover-class="button-hover"
       style="{{item.blackStyle}}"
       data-key="{{item.key}}"
       bindtap="onButtonTap"
@@ -19,6 +20,7 @@
     src="{{item.musicSrc}}" 
     id="{{item.key}}"
     wx:key="item.key"
+    controls="{{false}}"
     obeyMuteSwitch="{{false}}"
   ></audio> 
   
