@@ -1,0 +1,25 @@
+<!-- 钢琴页面 -->
+<view class="piano-root">
+  <view class="piano">
+    <button
+      wx:for="{{buttons}}"
+      wx:key="item.key"
+      class="button {{item.type}}"
+      style="{{item.blackStyle}}"
+      data-key="{{item.key}}"
+      bindtap="onButtonTap"
+    >
+    </button>
+  </view>
+
+   <!-- <audio src="http://oeasy.org/wav/A.wav" id="A4"></audio>  -->
+   <!-- <audio src="{{test}}" id="A4"></audio>  -->
+   <audio
+    wx:for="{{buttons}}"
+    src="{{item.musicSrc}}" 
+    id="{{item.key}}"
+    wx:key="item.key"
+    obeyMuteSwitch="{{false}}"
+  ></audio> 
+  
+</view>
