@@ -1,7 +1,5 @@
 // pages/game/index.js
-var { prev } = require('../../assets/prev-audios.js')
-var {next} = require('../../assets/next-audios.js')
-var audios = prev.concat(next)
+var { audios } = require('../../assets/audios/index')
 const BASE64_PRE = 'data:audio/mpeg;base64,'
 
 Page({
@@ -35,7 +33,8 @@ Page({
       { group: 5, musicNumber: 3 },
       { group: 5, musicNumber: 4}
     ],
-    buttons: []
+    buttons: [],
+    base: '_'
   },
 
   /**
@@ -56,6 +55,7 @@ Page({
     this.audios = {}
     this.data.buttons.forEach(item => {
       this.audios[item.key] = wx.createAudioContext(item.key)
+      this.audios['_' + item.key] = wx.createAudioContext('_' + item.key)
     })
   },
 
@@ -134,15 +134,16 @@ Page({
     return top
   },
 
-  onButtonTap (ev) {
-    this.playMusic(ev.target.dataset.key)
+  onButtonTouchstart (ev) {
+    let key = ev.target.dataset.key
+    this.base = this.base === '_' ? '' : '_'
+    let audio = this.audios[this.base + key]
+    audio.seek(0.06)
+    audio.play()
+    
   },
 
-  playMusic (key) {
-    this.lastPlay && this.lastPlay.pause()
-    this.audios[key].seek(0)
-    this.audios[key].play()
-    this.lastPlay = this.audios[key]
+  onButtonTouchend (ev) {
   }
 })
 function Music (options) {
