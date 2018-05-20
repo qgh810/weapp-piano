@@ -15,14 +15,13 @@
 
    <!-- <audio src="http://oeasy.org/wav/A.wav" id="A4"></audio>  -->
    <!-- <audio src="{{test}}" id="A4"></audio>  -->
-   <audio
+    <audio
     wx:for="{{buttons}}"
-    wx:if="{{item.type === 'white'}}"
     src="{{item.musicSrc}}" 
     id="{{item.key}}"
     wx:key="item.key"
     controls="{{false}}"
     obeyMuteSwitch="{{false}}"
-  ></audio> 
+  ></audio>  
   
 </view>

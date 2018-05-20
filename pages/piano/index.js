@@ -1,4 +1,9 @@
 // pages/game/index.js
+var { prev } = require('../../assets/prev-audios.js')
+var {next} = require('../../assets/next-audios.js')
+var audios = prev.concat(next)
+const BASE64_PRE = 'data:audio/mpeg;base64,'
+
 Page({
 
   /**
@@ -50,7 +55,6 @@ Page({
     // 初始化音频对象
     this.audios = {}
     this.data.buttons.forEach(item => {
-      if (item.type !== 'white') return
       this.audios[item.key] = wx.createAudioContext(item.key)
     })
   },
@@ -102,8 +106,10 @@ Page({
    */
   getButtons () {
     var musics = this.data.musics
-    var result = musics.map(function (music) {
-      return new Music(music)
+    var result = musics.map(function (music, index) {
+      let res = new Music(music)
+      res.musicSrc = BASE64_PRE + audios[index]
+      return res
     })
     result.forEach(item => {
       let blackStyle = `top: ${this.getBlackStyleTop(item, result)}px;`
@@ -111,6 +117,7 @@ Page({
         item.blackStyle = blackStyle
       }
     })
+
     return result
   },
 
@@ -144,5 +151,4 @@ function Music (options) {
   this.type = this.musicNumber % 1 === 0 ? 'white' : 'black'
   this.music = ''
   this.key = this.group + '-' + this.musicNumber
-  this.musicSrc = '../../assets/' + this.key + '.ogg'
 }
