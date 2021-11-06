@@ -1,10 +1,10 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
   <view class="piano-body">
-    <view class="board1"></view>
-    <view class="board2"></view>
-    <view class="board3"></view>
-    <view class="board4"></view>
+  <view class="board1"></view>
+  <view class="board2"></view>
+  <view class="board3"></view>
+  <view class="board4"></view>
   </view>
   <view class="piano-buttons">
     <view
@@ -165,4 +165,9 @@
     >
     </button> -->
   </view>
+
+  <view class="adContainer">
+    <ad unit-id="adunit-286bbd138faea46a"></ad>
+  </view>
+
 </view>
