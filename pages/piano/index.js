@@ -1,41 +1,41 @@
-// pages/game/index.js
-var { audios } = require('../../assets/audios/index')
-const BASE64_PRE = 'data:audio/mpeg;base64,'
+const windowHeight = wx.getSystemInfoSync().windowHeight;
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     musics: [
-      { group: 3, musicNumber: 5 },
-      { group: 3, musicNumber: 5.5 },
-      { group: 3, musicNumber: 6 },
-      { group: 3, musicNumber: 6.5 },
-      { group: 3, musicNumber: 7 },
-      { group: 4, musicNumber: 1 },
-      { group: 4, musicNumber: 1.5 },
-      { group: 4, musicNumber: 2 },
-      { group: 4, musicNumber: 2.5 },
-      { group: 4, musicNumber: 3 },
-      { group: 4, musicNumber: 4 },
-      { group: 4, musicNumber: 4.5 },
-      { group: 4, musicNumber: 5 },
-      { group: 4, musicNumber: 5.5 },
-      { group: 4, musicNumber: 6 },
-      { group: 4, musicNumber: 6.5 },
-      { group: 4, musicNumber: 7 },
-      { group: 5, musicNumber: 1 },
-      { group: 5, musicNumber: 1.5 },
-      { group: 5, musicNumber: 2 },
-      { group: 5, musicNumber: 2.5 },
-      { group: 5, musicNumber: 3 },
-      { group: 5, musicNumber: 4}
+      { group: 3, musicNumber: 5, name: 'G3'},
+      { group: 3, musicNumber: 5.5 , name: 'Gs3'},
+      { group: 3, musicNumber: 6 , name: 'A3'},
+      { group: 3, musicNumber: 6.5 , name: 'As3'},
+      { group: 3, musicNumber: 7 , name: 'B3'},
+      { group: 4, musicNumber: 1 , name: 'C4'},
+      { group: 4, musicNumber: 1.5 , name: 'Cs4'},
+      { group: 4, musicNumber: 2 , name: 'D4'},
+      { group: 4, musicNumber: 2.5 , name: 'Ds4'},
+      { group: 4, musicNumber: 3 , name: 'E4'},
+      { group: 4, musicNumber: 4 , name: 'F4'},
+      { group: 4, musicNumber: 4.5 , name: 'Fs4'},
+      { group: 4, musicNumber: 5 , name: 'G4'},
+      { group: 4, musicNumber: 5.5 , name: 'Gs4'},
+      { group: 4, musicNumber: 6 , name: 'A4'},
+      { group: 4, musicNumber: 6.5 , name: 'As4'},
+      { group: 4, musicNumber: 7 , name: 'B4'},
+      { group: 5, musicNumber: 1 , name: 'C5'},
+      { group: 5, musicNumber: 1.5 , name: 'Cs5'},
+      { group: 5, musicNumber: 2 , name: 'D5'},
+      { group: 5, musicNumber: 2.5 , name: 'Ds5'},
+      { group: 5, musicNumber: 3 , name: 'E5'},
+      { group: 5, musicNumber: 4, name: 'F5'},
     ],
     buttons: [],
     base: '_'
   },
+
+  audios: {},
+  currentAudio: null,
 
   /**
    * 生命周期函数--监听页面加载
@@ -48,15 +48,8 @@ Page({
    */
   onReady: function () {
     // 初始化按钮列表
-    this.setData({
-      buttons: this.getButtons()
-    })
-    // 初始化音频对象
-    this.audios = {}
-    this.data.buttons.forEach(item => {
-      this.audios[item.key] = wx.createAudioContext(item.key)
-      this.audios['_' + item.key] = wx.createAudioContext('_' + item.key)
-    })
+    this.initButtons();
+    this.loadMusic();
   },
 
   /**
@@ -101,24 +94,50 @@ Page({
   
   },
 
-  /**
-   * 获取琴键列表
-   */
-  getButtons () {
-    var musics = this.data.musics
-    var result = musics.map(function (music, index) {
-      let res = new Music(music)
-      res.musicSrc = BASE64_PRE + audios[index]
-      return res
+  initButtons() {
+    const musics = this.data.musics;
+    const buttons = [];
+    musics.forEach(music => {
+      const options = {
+        ...music,
+      }
+      const button = new MusicButton(options);
+      buttons.push(button);
     })
-    result.forEach(item => {
-      let blackStyle = `top: ${this.getBlackStyleTop(item, result)}px;`
-      if (item.type === 'black') {
-        item.blackStyle = blackStyle
+
+    buttons.forEach(button => {
+      let blackStyle = `top: ${this.getBlackStyleTop(button, buttons)}px;`
+      if (button.type === 'black') {
+        button.blackStyle = blackStyle
       }
     })
 
-    return result
+    this.setData({
+      buttons,
+    })
+  },
+
+  loadMusic() {
+    this.data.musics.forEach(music => {
+      const name = music.name;
+      const audio = this.createAudio(name);
+      this.audios[name] = audio
+    })
+  },
+
+  createAudio(name, { autoplay } = {autoplay: false}) {
+    const audio = wx.createInnerAudioContext({ useWebAudioImplement: false });
+    audio.autoplay = autoplay;
+    audio.src = getUrlByName(name);
+    audio.onError((res) => {
+      console.error('音频加载异常');
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
+    // audio.onPlay(() => {
+    //   console.log('playing')
+    // })
+    return audio
   },
 
   /**
@@ -130,26 +149,35 @@ Page({
     let dGroup = item.group - list[0].group
     let dMusicNumber = item.musicNumber - list[0].musicNumber
     let offset = dGroup * 7 + dMusicNumber
-    let top = parseInt(offset) * 40 + 40 - 20 / 2
+    const height = windowHeight * 0.06;
+    let top = parseInt(offset) * height + height - height / 4;
     return top
   },
 
   onButtonTouchstart (ev) {
-    let key = ev.target.dataset.key
-    this.base = this.base === '_' ? '' : '_'
-    let audio = this.audios[this.base + key]
-    audio.seek(0.06)
-    audio.play()
-    
+    // console.log(ev);
+    const name = ev.target.dataset.name;
+    const audio = this.audios[name];
+    // this.currentAudio && this.currentAudio.stop();
+    audio.play();
+    this.currentAudio = audio;
   },
 
   onButtonTouchend (ev) {
+    // const name = ev.target.dataset.name;
+    // const audio = this.audios[name];
+    // audio.stop();
   }
 })
-function Music (options) {
+
+function getUrlByName(name) {
+  const base = 'https://cdn.jsdelivr.net/gh/warpprism/cdn@latest/autopiano/static/samples/bright_piano/';
+  return base + name + '.mp3';
+}
+
+function MusicButton (options) {
   this.group = options.group
   this.musicNumber = options.musicNumber
   this.type = this.musicNumber % 1 === 0 ? 'white' : 'black'
-  this.music = ''
-  this.key = this.group + '-' + this.musicNumber
+  this.name = options.name;
 }

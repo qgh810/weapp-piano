@@ -3,35 +3,15 @@
   <view class="piano">
     <button
       wx:for="{{buttons}}"
-      wx:key="item.key"
+      wx:key="key"
       class="button {{item.type}}"
       hover-class="button-hover"
       style="{{item.blackStyle}}"
-      data-key="{{item.key}}"
+      data-name="{{ item.name }}"
       hover-start-time="{{0}}"
       bindtouchstart="onButtonTouchstart"
       bindtouchend="onButtonTouchend"
     >
     </button>
   </view>
-
-   <!-- <audio src="http://oeasy.org/wav/A.wav" id="A4"></audio>  -->
-   <!-- <audio src="{{test}}" id="A4"></audio>  -->
-  <audio
-    wx:for="{{buttons}}"
-    src="{{item.musicSrc}}" 
-    id="{{item.key}}"
-    wx:key="item.key"
-    controls="{{false}}"
-    obeyMuteSwitch="{{false}}"
-  ></audio>  
-  <audio
-    wx:for="{{buttons}}"
-    src="{{item.musicSrc}}" 
-    id="_{{item.key}}"
-    wx:key="item.key"
-    controls="{{false}}"
-    obeyMuteSwitch="{{false}}"
-  ></audio> 
-  
 </view>

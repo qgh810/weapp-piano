@@ -24,7 +24,7 @@
 .piano-root .white {
   border-bottom: 1px solid #ccc;
   background: #ffffff;
-  height: 40px;
+  height: 6vh;
 }
 .piano-root .button.white.button-hover {
   background: rgba(255, 0, 0, 0.1);
@@ -33,7 +33,7 @@
   border-top: 1px solid #ccc;
 }
 .piano-root .black {
-  height: 20px;
+  height: 3vh;
   width: 60%;
   background: #000000;
   position: absolute;
