@@ -37,7 +37,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadAudio()
+    this.loadAudio();
+    this.interstitialAd = createInterstitialAd();
   },
 
   /**
@@ -50,7 +51,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.interstitialAd) {
+      this.interstitialAd.show();
+    }
   },
 
   /**
@@ -64,7 +67,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.audios = null
   },
 
   /**
@@ -120,4 +122,16 @@ function createAudioByName(name) {
 function getUrlByName(name) {
   const base = 'https://cdn.jsdelivr.net/gh/warpprism/cdn@latest/autopiano/static/samples/bright_piano/';
   return base + name + '.mp3';
+}
+
+function createInterstitialAd() {
+  // 在页面中定义插屏广告
+  // 在页面onLoad回调事件中创建插屏广告实例
+  if (wx.createInterstitialAd) {
+    return wx.createInterstitialAd({
+      adUnitId: 'adunit-b0e622babb811ae9'
+    })
+  } else {
+    return null;
+  }
 }
