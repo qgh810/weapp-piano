@@ -1,6 +1,24 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
-  <view class="piano">
+  <view class="piano-body">
+    <view class="board1"></view>
+    <view class="board2"></view>
+    <view class="board3"></view>
+    <view class="board4"></view>
+  </view>
+  <view class="piano-buttons">
+    <view
+      data-name="F3"
+      class="button F3 white"
+      bindtouchstart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Fs3"
+      class="button Fs3 black"
+      bindtouchstart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
     <view
       data-name="G3"
       class="button G3 white"
@@ -132,12 +150,6 @@
     <view
       data-name="E5"
       class="button E5 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="F5"
-      class="button F5 white"
       bindtouchstart="onButtonTouchstart"
       bindtouchend="onButtonTouchend"
     ></view>

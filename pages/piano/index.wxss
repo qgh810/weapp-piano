@@ -3,51 +3,109 @@
   height: 100%;
 }
 
-.piano-root .piano {
+/* 钢琴架样式 */
+.piano-root .piano-body {
+  position: relative;
+  width: 100%;
+  height: 50vw;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 0 4vw 1vw #1c1c1c;
+  /* background: #1c1c1c; */
+}
+
+.piano-root .piano-body .board1 {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: #1c1c1c;
+}
+
+.piano-root .piano-body .board2 {
+  position: absolute;
+  top: 30vw;
+  left: 0;
+  width: 100vw;
+  height: 40vw;
+  border-top-right-radius: 20vw;
+  background: #1c1c1c;
+}
+.piano-root .piano-body .board3 {
+  position: absolute;
+  top: 27vw;
+  left: 43vw;
+  width: 20vw;
+  height: 20vw;
+  background: #1c1c1c;
+}
+.piano-root .piano-body .board4 {
+  background: green;
+  position: absolute;
+  top: 0vw;
+  left: 60vw;
+  width: 30vw;
+  height: 30vw;
+  background: white;
+  border-radius: 3vw;
+}
+/* 按键部分样式 */
+.piano-root .piano-buttons {
   position: relative;
   margin: 0 auto;
   width: auto;
-  height: auto;
-  background: black;
+  height: 20vh;
+  background: #1c1c1c;
   padding-top: 4px;
-  padding-bottom: 2px;
+  padding-bottom: 1vw;
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 0;
+  border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.piano-root .piano .button.white {
+.piano-root .piano-buttons .button.white {
   display: inline-block;
   height: 100%;
   border-radius: 0;
-  width: 6.6vw;
-  height: 200px;
+  width: 6.5vw;
+  height: 100%;
   margin: 0 1px;
   background: white;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
 }
 
-.piano-root .piano .button.black {
+.piano-root .piano-buttons .button.black {
   position: relative;
   display: inline-block;
   width: 0;
+  height: 60%;
   vertical-align: top;
 }
 
-.piano-root .piano .button.black::after {
+.piano-root .piano-buttons .button.black::after {
   position: absolute;
   content: '';
-  background: black;
-  width: 4vw;
-  border: 2px solid black;
+  background: #1c1c1c;
+  width: 4.4vw;
+  border: 2px solid #1c1c1c;
   border-top: 0;
-  height: 120px;
+  height: 100%;
   transform: translate(-50%, 0);
 }
 
-.piano-root .piano .button.white:active {
+.piano-root .piano-buttons .button.white:active {
   background:#3ebdc9;
 }
 
-.piano-root .piano .button.black:active::after {
+.piano-root .piano-buttons .button.black:active::after {
   background:#3ebdc9;
 }

@@ -5,6 +5,8 @@ Page({
    */
   data: {
     musicNames: [
+      'F3',
+      'Fs3',
       'G3',
       'Gs3',
       'A3',
