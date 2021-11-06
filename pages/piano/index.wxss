@@ -1,46 +1,53 @@
-/* pages/game/index.wxss */
 .piano-root {
   width: 100%;
   height: 100%;
-  overflow: auto;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
 }
+
 .piano-root .piano {
-  width: 70%;
   position: relative;
-  /* text-align: right;
-  margin-left: 25%; */
-  border-left: 1px solid #ccc;
-}
-.piano-root .button {
-  border-radius: 0;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  background: black;
+  padding-top: 4px;
+  padding-bottom: 2px;
   box-sizing: border-box;
-} 
-.piano-root .button:after {
-  display: none;
+  overflow: hidden;
+  text-align: center;
 }
-.piano-root .white {
-  border-bottom: 1px solid #ccc;
-  background: #ffffff;
-  height: 6vh;
+
+.piano-root .piano .button.white {
+  display: inline-block;
+  height: 100%;
+  border-radius: 0;
+  width: 6.6vw;
+  height: 200px;
+  margin: 0 1px;
+  background: white;
 }
-.piano-root .button.white.button-hover {
-  background: rgba(255, 0, 0, 0.1);
+
+.piano-root .piano .button.black {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  vertical-align: top;
 }
-.piano-root .white:first-child {
-  border-top: 1px solid #ccc;
-}
-.piano-root .black {
-  height: 3vh;
-  width: 60%;
-  background: #000000;
+
+.piano-root .piano .button.black::after {
   position: absolute;
-  right: 0;
-  top: 30px;
-  z-index: 1;
+  content: '';
+  background: black;
+  width: 4vw;
+  border: 2px solid black;
+  border-top: 0;
+  height: 120px;
+  transform: translate(-50%, 0);
 }
-.piano-root .button.black.button-hover {
-  background: rgb(50, 50, 50);
+
+.piano-root .piano .button.white:active {
+  background:#3ebdc9;
+}
+
+.piano-root .piano .button.black:active::after {
+  background:#3ebdc9;
 }

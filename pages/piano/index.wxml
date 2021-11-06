@@ -1,7 +1,170 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
   <view class="piano">
-    <button
+    <view
+      data-name="G3"
+      class="button G3 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Gs3"
+      class="button Gs3 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="A3"
+      class="button A3 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="As3"
+      class="button As3 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="B3"
+      class="button B3 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+
+    <view
+      data-name="C4"
+      class="button C4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Cs4"
+      class="button Cs4 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="D4"
+      class="button D4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Ds4"
+      class="button Ds4 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="E4"
+      class="button E4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="F4"
+      class="button F4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Fs4"
+      class="button Fs4 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="G4"
+      class="button G4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Gs4"
+      class="button Gs4 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="A4"
+      class="button A4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="As4"
+      class="button As4 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="B4"
+      class="button B4 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+
+    <view
+      data-name="C5"
+      class="button C5 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Cs5"
+      class="button Cs5 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="D5"
+      class="button D5 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="Ds5"
+      class="button Ds5 black"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="E5"
+      class="button E5 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <view
+      data-name="F5"
+      class="button F5 white"
+      hover-class="button-hover"
+      bindTouchStart="onButtonTouchstart"
+      bindtouchend="onButtonTouchend"
+    ></view>
+    <!-- <view
       wx:for="{{buttons}}"
       wx:key="key"
       class="button {{item.type}}"
@@ -12,6 +175,6 @@
       bindtouchstart="onButtonTouchstart"
       bindtouchend="onButtonTouchend"
     >
-    </button>
+    </button> -->
   </view>
 </view>
