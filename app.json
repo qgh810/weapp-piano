@@ -1,7 +1,6 @@
 {
   "pages": [
-    "pages/piano/index",
-    "pages/index/index"
+    "pages/piano/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
