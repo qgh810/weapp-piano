@@ -144,9 +144,9 @@ Page({
   playAudio(name) {
     const audio = createAudioByName(name);
     audio.play();
-    audio.onEnded(() => {
-      audio.destroy();
-    })
+    // audio.onEnded(() => {
+    //   audio.destroy();
+    // })
   },
 
   _activeButtons: [],
