@@ -40,7 +40,6 @@ Page({
   onLoad: function (options) {
     this.initButtons();
     this.preLoadAudio();
-    this.interstitialAd = createInterstitialAd();
   },
 
   /**
@@ -53,9 +52,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.interstitialAd) {
-      this.interstitialAd.show();
+    if (!this.interstitialAd) {
+      this.interstitialAd = createInterstitialAd();
     }
+    this.interstitialAd.show();
   },
 
   /**
