@@ -91,15 +91,13 @@ Page({
   },
 
   onButtonTouchstart (ev) {
-    console.log('touchstart');
-    console.log(ev);
     const name = ev.target.dataset.name;
     const audio = createAudioByName(name);
     audio.play();
   },
 
   onButtonTouchend (ev) {
-    console.log('touchend');
+    // console.log('touchend');
     // const name = ev.target.dataset.name;
     // const audio = this.audios[name];
     // audio.stop();
