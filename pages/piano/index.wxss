@@ -80,6 +80,9 @@
   box-sizing: border-box;
 }
 
+.piano-root .piano-buttons .button {
+  position: relative;
+}
 .piano-root .piano-buttons .button.white {
   display: inline-block;
   height: 100%;
@@ -90,6 +93,18 @@
   background: white;
   border-bottom-left-radius: 1vw;
   border-bottom-right-radius: 1vw;
+  overflow: hidden;
+  text-align: bottom;
+}
+
+.piano-root .piano-buttons .button .text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ccc;
+  font-size: 3vw;
+  line-height: 6vw;
 }
 
 .piano-root .piano-buttons .button.black {
@@ -98,6 +113,7 @@
   width: 0;
   height: 60%;
   vertical-align: top;
+  z-index: 1;
 }
 
 .piano-root .piano-buttons .button.black::after {

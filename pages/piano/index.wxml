@@ -55,7 +55,7 @@
       class="button C4 white"
       bindtouchstart="onButtonTouchstart"
       bindtouchend="onButtonTouchend"
-    ></view>
+    ><text class="text">C</text></view>
     <view
       data-name="Cs4"
       class="button Cs4 black"
