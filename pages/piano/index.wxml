@@ -6,164 +6,23 @@
   <view class="board3"></view>
   <view class="board4"></view>
   </view>
-  <view class="piano-buttons">
-    <view
-      data-name="F3"
-      class="button F3 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Fs3"
-      class="button Fs3 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="G3"
-      class="button G3 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Gs3"
-      class="button Gs3 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="A3"
-      class="button A3 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="As3"
-      class="button As3 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="B3"
-      class="button B3 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-
-    <view
-      data-name="C4"
-      class="button C4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ><text class="text">C</text></view>
-    <view
-      data-name="Cs4"
-      class="button Cs4 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="D4"
-      class="button D4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Ds4"
-      class="button Ds4 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="E4"
-      class="button E4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="F4"
-      class="button F4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Fs4"
-      class="button Fs4 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="G4"
-      class="button G4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Gs4"
-      class="button Gs4 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="A4"
-      class="button A4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="As4"
-      class="button As4 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="B4"
-      class="button B4 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-
-    <view
-      data-name="C5"
-      class="button C5 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Cs5"
-      class="button Cs5 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="D5"
-      class="button D5 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="Ds5"
-      class="button Ds5 black"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <view
-      data-name="E5"
-      class="button E5 white"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
-    ></view>
-    <!-- <view
-      wx:for="{{buttons}}"
-      wx:key="key"
-      class="button {{item.type}}"
-      style="{{item.blackStyle}}"
-      data-name="{{ item.name }}"
-      hover-start-time="{{0}}"
-      bindtouchstart="onButtonTouchstart"
-      bindtouchend="onButtonTouchend"
+  <view 
+    class="piano-buttons"
+    bindtouchstart="onButtonTouchstart"
+    bindtouchmove="onButtonTouchmove"
+    bindtouchend="onButtonTouchend"
     >
-    </button> -->
+    <view
+      wx:for="{{buttons}}"
+      wx:key="name"
+      data-name="{{item.name}}"
+      class="button {{item.type}}"
+      hover-class="hover-button"
+      hover-start-time="0"
+      hover-stay-time="100"
+    >
+      <text class="text" wx:if="{{item.name === 'C4'}}">{{item.name}}</text>
+    </view>
   </view>
 
   <view class="adContainer">

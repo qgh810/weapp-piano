@@ -105,6 +105,7 @@
   color: #ccc;
   font-size: 3vw;
   line-height: 6vw;
+  pointer-events: none;
 }
 
 .piano-root .piano-buttons .button.black {
@@ -127,10 +128,10 @@
   transform: translate(-50%, 0);
 }
 
-.piano-root .piano-buttons .button.white:active {
+.piano-root .piano-buttons .button.hover-button {
   background:#3ebdc9;
 }
 
-.piano-root .piano-buttons .button.black:active::after {
+.piano-root .piano-buttons .button.hover-button::after {
   background:#3ebdc9;
 }

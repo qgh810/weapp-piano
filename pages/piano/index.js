@@ -1,43 +1,45 @@
 
+const musicNames = [
+  'F3',
+  'Fs3',
+  'G3',
+  'Gs3',
+  'A3',
+  'As3',
+  'B3',
+  'C4',
+  'Cs4',
+  'D4',
+  'Ds4',
+  'E4',
+  'F4',
+  'Fs4',
+  'G4',
+  'Gs4',
+  'A4',
+  'As4',
+  'B4',
+  'C5',
+  'Cs5',
+  'D5',
+  'Ds5',
+  'E5',
+]
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    musicNames: [
-      'F3',
-      'Fs3',
-      'G3',
-      'Gs3',
-      'A3',
-      'As3',
-      'B3',
-      'C4',
-      'Cs4',
-      'D4',
-      'Ds4',
-      'E4',
-      'F4',
-      'Fs4',
-      'G4',
-      'Gs4',
-      'A4',
-      'As4',
-      'B4',
-      'C5',
-      'Cs5',
-      'D5',
-      'Ds5',
-      'E5',
-      'F5',
-    ]
+    buttons: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadAudio();
+    this.initButtons();
+    this.preLoadAudio();
     this.interstitialAd = createInterstitialAd();
   },
 
@@ -90,24 +92,86 @@ Page({
   
   },
 
+  initButtons() {
+    const buttons = musicNames.map(name => {
+      return {
+        name,
+        type: this.getButtonType(name),
+      }
+    });
+    this.setData({
+      buttons
+    })
+  },
+
   onButtonTouchstart (ev) {
     const name = ev.target.dataset.name;
-    const audio = createAudioByName(name);
-    audio.play();
+    this.downButton(name);
   },
 
   onButtonTouchend (ev) {
-    // console.log('touchend');
-    // const name = ev.target.dataset.name;
-    // const audio = this.audios[name];
-    // audio.stop();
+    const name = ev.target.dataset.name;
+    this.upButton(name);
   },
 
-  loadAudio() {
-    const names = this.data.musicNames;
+  /**
+   * 按下按键
+   * @param {} name 
+   */
+  downButton(name) {
+    if (this.isActiveButton(name)) {
+      return;
+    }
+    this.playAudio(name);
+    this.addActiveButton(name);
+  },
+
+  /**
+   * 放开按键
+   * @param {}} name 
+   */
+  upButton(name) {
+    this.removeActiveButton(name);
+  },
+
+  preLoadAudio() {
+    const names = musicNames;
     names.forEach(name => {
       createAudioByName(name);
     })
+  },
+
+  playAudio(name) {
+    const audio = createAudioByName(name);
+    audio.play();
+    audio.onEnded(() => {
+      audio.destroy();
+    })
+  },
+
+  _activeButtons: [],
+  addActiveButton(name) {
+    if (!this.isActiveButton(name)) {
+      this._activeButtons.push(name);
+    }
+  },
+
+  removeActiveButton(name) {
+    const index = this._activeButtons.indexOf(name);
+    if (index > -1) {
+      this._activeButtons.splice(index, 1);
+    }
+  },
+
+  isActiveButton(name) {
+    return this._activeButtons.indexOf(name) > -1;
+  },
+
+  getButtonType(name) {
+    return {
+      '2': 'white',
+      '3': 'black',
+    }[name.length];
   }
 })
 
@@ -132,4 +196,12 @@ function createInterstitialAd() {
   } else {
     return null;
   }
+}
+
+function getWindowWidth() {
+  const width = wx.getSystemInfoSync().windowWidth;
+  if (width) {
+    getWindowWidth = () => width;
+  }
+  return width;
 }
