@@ -1,6 +1,11 @@
-import { getWindowHeight, getWindowWidth } from "../../utils/index";
+import { getWindowHeight, getWindowWidth } from '../../utils/index';
 
 const MUSIC_NAMES = [
+  'C3',
+  'Cs3',
+  'D3',
+  'Ds3',
+  'E3',
   'F3',
   'Fs3',
   'G3',
@@ -25,6 +30,13 @@ const MUSIC_NAMES = [
   'D5',
   'Ds5',
   'E5',
+  'F5',
+  'Fs5',
+  'G5',
+  'Gs5',
+  'A5',
+  'As5',
+  'B5',
 ]
 
 Page({
@@ -33,10 +45,8 @@ Page({
    */
   data: {
     MUSIC_NAMES: [...MUSIC_NAMES],
-    buttonsHeight: getWindowHeight() * 0.18,
-    buttonsWidth: getWindowWidth() - 6,
-    buttonsOffsetTop: getWindowWidth() * 0.6,
-    buttonsOffsetLeft: 3,
+    buttonsHeight: getWindowHeight() / 2,
+    buttonsWidth: getWindowWidth() - 50,
   },
 
   /**
@@ -55,17 +65,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!this.interstitialAd) {
-      this.interstitialAd = createInterstitialAd();
-    }
-    this.interstitialAd.show();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
   },
 
   /**
@@ -94,15 +99,3 @@ Page({
   onShareAppMessage: function () {
   },
 })
-
-function createInterstitialAd() {
-  // 在页面中定义插屏广告
-  // 在页面onLoad回调事件中创建插屏广告实例
-  if (wx.createInterstitialAd) {
-    return wx.createInterstitialAd({
-      adUnitId: 'adunit-b0e622babb811ae9'
-    })
-  } else {
-    return null;
-  }
-}

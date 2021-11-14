@@ -1,0 +1,8 @@
+<!-- 钢琴页面 -->
+<view class="piano-pro-root">
+  <piano-buttons
+    musicNames="{{MUSIC_NAMES}}"
+    height="{{buttonsHeight}}"
+    width="{{buttonsWidth}}"
+  />
+</view>

@@ -1,0 +1,32 @@
+
+/* 按键部分样式 */
+.piano-buttons {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  background: #191919;
+  border-top: 2px solid #000000;
+}
+
+.piano-buttons .button {
+  position: absolute;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  box-sizing: border-box;
+}
+
+.piano-buttons .button.black {
+  border: 2px solid #000000;
+  border-top: 0;
+}
+
+.piano-buttons .button .text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #cccccc;
+  pointer-events: none;
+}

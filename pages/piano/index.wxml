@@ -6,23 +6,16 @@
   <view class="board3"></view>
   <view class="board4"></view>
   </view>
-  <view 
-    class="piano-buttons"
-    bindtouchstart="onButtonTouchstart"
-    bindtouchmove="onButtonTouchmove"
-    bindtouchend="onButtonTouchend"
-    >
-    <view
-      wx:for="{{buttons}}"
-      wx:key="name"
-      data-name="{{item.name}}"
-      class="button {{item.type}}"
-      hover-class="hover-button"
-      hover-start-time="0"
-      hover-stay-time="100"
-    >
-      <text class="text" wx:if="{{item.name === 'C4'}}">{{item.name}}</text>
-    </view>
+  
+  <view class="buttons-container">
+    <piano-buttons
+    containerId="buttons"
+      musicNames="{{MUSIC_NAMES}}"
+      width="{{buttonsWidth}}"
+      height="{{buttonsHeight}}"
+      offsetLeft="{{buttonsOffsetLeft}}"
+      offsetTop="{{buttonsOffsetTop}}"
+    />
   </view>
 
   <view class="adContainer">

@@ -1,0 +1,19 @@
+
+  <view 
+    id="{{containerId}}"
+    class="piano-buttons"
+    style="height: {{height}}px; width: {{width}}px"
+    bindtouchstart="onButtonTouchstart"
+    bindtouchmove="onButtonTouchmove"
+    bindtouchend="onButtonTouchend"
+    >
+    <view
+      wx:for="{{buttons}}"
+      wx:key="name"
+      data-name="{{item.name}}"
+      class="button {{item.type}} {{activeButtons.indexOf(item.name) > -1 ? 'active' : ''}}"
+      style="{{item.style}}"
+    >
+      <text class="text" wx:if="{{item.name === 'C4'}}">{{item.name}}</text>
+    </view>
+  </view>

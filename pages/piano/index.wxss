@@ -60,78 +60,8 @@
   border-radius: 3vw;
 }
 /* 按键部分样式 */
-.piano-root .piano-buttons {
+.piano-root .buttons-container {
   position: relative;
-  margin: 0 auto;
-  width: auto;
-  height: 20vh;
+  width: 100%;
   background: #191919;
-  padding-top: 4px;
-  padding-bottom: 1vw;
-  box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: 0;
-  border-bottom-left-radius: 3vw;
-  border-bottom-right-radius: 3vw;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.piano-root .piano-buttons .button {
-  position: relative;
-}
-.piano-root .piano-buttons .button.white {
-  display: inline-block;
-  height: 100%;
-  border-radius: 0;
-  width: 6.5vw;
-  height: 100%;
-  margin: 0 1px;
-  background: white;
-  border-bottom-left-radius: 1vw;
-  border-bottom-right-radius: 1vw;
-  overflow: hidden;
-  text-align: bottom;
-}
-
-.piano-root .piano-buttons .button .text {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ccc;
-  font-size: 3vw;
-  line-height: 6vw;
-  pointer-events: none;
-}
-
-.piano-root .piano-buttons .button.black {
-  position: relative;
-  display: inline-block;
-  width: 0;
-  height: 60%;
-  vertical-align: top;
-  z-index: 1;
-}
-
-.piano-root .piano-buttons .button.black::after {
-  position: absolute;
-  content: '';
-  background: #000;
-  width: 4.4vw;
-  border: 2px solid #000;
-  border-top: 0;
-  height: 100%;
-  transform: translate(-50%, 0);
-}
-
-.piano-root .piano-buttons .button.hover-button {
-  background:#3ebdc9;
-}
-
-.piano-root .piano-buttons .button.hover-button::after {
-  background:#3ebdc9;
 }
