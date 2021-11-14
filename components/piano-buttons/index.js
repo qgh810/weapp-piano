@@ -105,6 +105,7 @@ Component({
         let left;
         let backgroundColor;
         let zIndex;
+        let borderRadius;
         const isActive = this.isActiveButton(name);
 
         if (type === 'white') {
@@ -114,6 +115,7 @@ Component({
           backgroundColor = '#ffffff';
           left = whiteIndex * buttonWidth + (whiteIndex + 1) * MARGIN;
           zIndex = 1;
+          borderRadius = buttonWidth / 6;
       } else if (type === 'black') {
           const prevWhiteButtonName = musicNames[index - 1];
           const prevWhiteIndex = whiteButtonNames.indexOf(prevWhiteButtonName);
@@ -124,6 +126,7 @@ Component({
           backgroundColor = '#000000';
           left = prevWhiteButtonLeft + buttonWidth - width / 2;
           zIndex = 2;
+          borderRadius = buttonWidth / 10;
         }
 
         if (isActive) {
@@ -136,6 +139,8 @@ Component({
           `height: ${height}px`,
           `background-color: ${backgroundColor}`,
           `z-index: ${zIndex}`,
+          `border-bottom-left-radius: ${borderRadius}px`,
+          `border-bottom-right-radius: ${borderRadius}px`,
         ].join(';');
 
         const button = {

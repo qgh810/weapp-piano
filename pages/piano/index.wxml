@@ -1,15 +1,10 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
-  <view class="piano-body">
-  <view class="board1"></view>
-  <view class="board2"></view>
-  <view class="board3"></view>
-  <view class="board4"></view>
-  </view>
+  <piano-board
+  />
   
   <view class="buttons-container">
     <piano-buttons
-    containerId="buttons"
       musicNames="{{MUSIC_NAMES}}"
       width="{{buttonsWidth}}"
       height="{{buttonsHeight}}"

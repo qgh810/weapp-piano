@@ -1,0 +1,10 @@
+<!--components/piano-board/index.wxml-->
+<view class="piano-board">
+  <view class="board1"></view>
+  <view class="board2"></view>
+  <view class="board3"></view>
+
+  <text class="text text1">SIMPLE PIANO</text>
+  <text class="text text2">Feel the smell of piano</text>
+  <text class="text text3">Let's feel the breath of the piano together, enjoy the addictive beautiful melody, and let the energy inspired by the sound penetrate your body.</text>
+</view>

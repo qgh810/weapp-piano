@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "piano-buttons": "../../components/piano-buttons"
+    "piano-buttons": "../../components/piano-buttons",
+    "piano-board": "../../components/piano-board"
   }
 }

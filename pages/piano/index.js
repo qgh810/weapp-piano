@@ -33,10 +33,10 @@ Page({
    */
   data: {
     MUSIC_NAMES: [...MUSIC_NAMES],
-    buttonsHeight: getWindowHeight() * 0.18,
-    buttonsWidth: getWindowWidth() - 6,
-    buttonsOffsetTop: getWindowWidth() * 0.6,
-    buttonsOffsetLeft: 3,
+    buttonsHeight: getWindowHeight() * 0.14,
+    buttonsWidth: getWindowWidth(),
+    buttonsOffsetTop: getWindowWidth() * 0.8,
+    buttonsOffsetLeft: 0,
   },
 
   /**

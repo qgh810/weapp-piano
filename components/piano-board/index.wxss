@@ -1,0 +1,68 @@
+/* components/piano-board/index.wxss */
+.piano-board {
+  position: relative;
+  width: 100%;
+  height: 80vw;
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
+.piano-board .board1 {
+  position: absolute;
+  left: 70vw;
+  background: #fff;
+  width: 60vw;
+  height: 60vw;
+  border-bottom-left-radius: 40vw 60vw;
+}
+
+.piano-board .board2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff;
+  width: 100vw;
+  height: 30vw;
+}
+
+.piano-board .board3 {
+  position: absolute;
+  left: -2.9vw;
+  top: -9vw;
+  background: #000;
+  width: 80vw;
+  height: 60vw;
+  border-top-right-radius: 60vw 51vw;
+}
+
+.piano-board .text {
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+  z-index: 1;
+  opacity: 0.8;
+  /* font-family: ‘Times New Roman’, Times, serif; */
+  font-weight: 200;
+}
+
+.piano-board .text1 {
+  left: 4vw;
+  top: 52vw;
+  font-size: 12vw;
+  text-shadow: 0.8vw 0.8vw rgba(255, 255, 255, 0.2);
+}
+
+.piano-board .text2 {
+  left: 4vw;
+  top: 68vw;
+  font-size: 6vw;
+}
+
+.piano-board .text3 {
+  width: 59vw;
+  left: 4vw;
+  top: 33vw;
+  font-size: 3vw;
+  font-style: italic;
+}
