@@ -64,7 +64,6 @@ Component({
   },
   lifetimes: {
     attached: function () {
-      console.log(this)
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -165,9 +164,7 @@ Component({
     },
 
     onButtonTouchmove(ev) {
-      console.log(ev);
       const touchButton = this.hittest(ev);
-      console.log(touchButton && touchButton.name);
       if (!touchButton) return;
 
       const name = touchButton.name;
