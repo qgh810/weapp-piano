@@ -1,4 +1,4 @@
-import { getWindowHeight, getWindowWidth } from "../../utils/index";
+import { getWindowHeight, getWindowWidth, logger } from "../../utils/index";
 
 const MUSIC_NAMES = [
   'F3',
@@ -35,7 +35,7 @@ Page({
     MUSIC_NAMES: [...MUSIC_NAMES],
     buttonsHeight: getWindowHeight() * 0.14,
     buttonsWidth: getWindowWidth(),
-    buttonsOffsetTop: getWindowWidth() * 0.8,
+    boardHeight: getWindowWidth() * 0.8,
     buttonsOffsetLeft: 0,
   },
 
@@ -43,6 +43,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.onMemoryWarning(this.onMemoryWarning);
   },
 
   /**
@@ -93,6 +94,11 @@ Page({
    */
   onShareAppMessage: function () {
   },
+
+  onMemoryWarning: function(e) {
+    console.warn('内存不足', e);
+    logger.warn('[page-piano]', '内存不足');
+  }
 })
 
 function createInterstitialAd() {

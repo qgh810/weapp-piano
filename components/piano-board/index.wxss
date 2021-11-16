@@ -1,8 +1,15 @@
 /* components/piano-board/index.wxss */
-.piano-board {
+.piano-board-container {
   position: relative;
-  width: 100%;
   height: 80vw;
+}
+
+.piano-board {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vw;
   overflow: hidden;
   background: #000;
   z-index: 1;
@@ -11,6 +18,7 @@
 .piano-board .board1 {
   position: absolute;
   left: 70vw;
+  bottom: 20vw;
   background: #fff;
   width: 60vw;
   height: 60vw;
@@ -20,16 +28,16 @@
 .piano-board .board2 {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 50vw;
   background: #fff;
   width: 100vw;
-  height: 30vw;
+  height: 100vw;
 }
 
 .piano-board .board3 {
   position: absolute;
   left: -2.9vw;
-  top: -9vw;
+  bottom: 29vw;
   background: #000;
   width: 80vw;
   height: 60vw;
@@ -48,21 +56,21 @@
 
 .piano-board .text1 {
   left: 4vw;
-  top: 52vw;
+  bottom: 11vw;
   font-size: 12vw;
   text-shadow: 0.8vw 0.8vw rgba(255, 255, 255, 0.2);
 }
 
 .piano-board .text2 {
   left: 4vw;
-  top: 68vw;
+  bottom: 3vw;
   font-size: 6vw;
 }
 
 .piano-board .text3 {
   width: 59vw;
   left: 4vw;
-  top: 33vw;
+  bottom: 28vw;
   font-size: 3vw;
   font-style: italic;
 }

@@ -5,3 +5,6 @@ export function getWindowWidth() {
 export function getWindowHeight() {
   return wx.getSystemInfoSync().windowHeight;
 }
+
+const logManager = wx.getRealtimeLogManager();
+export const logger = logManager.tag('test');

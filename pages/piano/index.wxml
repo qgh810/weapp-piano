@@ -1,15 +1,14 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
-  <piano-board
-  />
-  
+  <piano-board height="{{boardHeight}}" />
+
   <view class="buttons-container">
     <piano-buttons
       musicNames="{{MUSIC_NAMES}}"
       width="{{buttonsWidth}}"
       height="{{buttonsHeight}}"
-      offsetLeft="{{buttonsOffsetLeft}}"
-      offsetTop="{{buttonsOffsetTop}}"
+      offsetLeft="{{0}}"
+      offsetTop="{{boardHeight}}"
     />
   </view>
 
