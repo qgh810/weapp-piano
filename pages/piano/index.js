@@ -36,7 +36,6 @@ Page({
     buttonsHeight: getWindowHeight() * 0.14,
     buttonsWidth: getWindowWidth(),
     boardHeight: getWindowWidth() * 0.8,
-    buttonsOffsetLeft: 0,
   },
 
   /**
