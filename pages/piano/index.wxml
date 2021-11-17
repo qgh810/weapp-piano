@@ -1,5 +1,6 @@
 <!-- 钢琴页面 -->
 <view class="piano-root">
+  <piano-pro-entry-button />
   <piano-board height="{{boardHeight}}" />
 
   <view class="buttons-container">

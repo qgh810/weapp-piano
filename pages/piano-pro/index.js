@@ -78,23 +78,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    MUSIC_NAMES: [...MUSIC_NAMES],
-    buttonsHeight: getWindowHeight() * 0.7,
-    buttonsWidth: getWindowWidth() * 3,
-    buttonOffsetControlWidth: getWindowWidth() * 0.7,
-    offset: 1 / 3,
+    MUSIC_NAMES: [],
+    buttonsHeight: 0,
+    buttonsWidth: 0,
+    offset: 0,
+    ready: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.initData();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
   },
 
   /**
@@ -136,9 +138,18 @@ Page({
   },
 
   onOffsetChange: function (ev) {
-    const offset = ev.detail;
     this.setData({
-      offset,
+      offset: ev.detail,
+    })
+  },
+
+  initData() {
+    this.setData({
+      MUSIC_NAMES: [...MUSIC_NAMES],
+      buttonsHeight: getWindowHeight() * 0.7,
+      buttonsWidth: getWindowWidth() * 3,
+      offset: 1 / 3,
+      ready: true,
     })
   }
 })

@@ -13,9 +13,3 @@
   z-index: 0;
 }
 
-/* 按键部分样式 */
-.piano-root .buttons-container {
-  position: relative;
-  width: 100%;
-  background: #191919;
-}

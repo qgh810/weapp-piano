@@ -87,6 +87,7 @@ Component({
         scrollLeft: width * offset,
       })
       this.initRootRect();
+      this.initButtons();
     }
   },
   lifetimes: {

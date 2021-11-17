@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "piano-buttons": "../../components/piano-buttons",
-    "piano-board": "../../components/piano-board"
+    "piano-board": "../../components/piano-board",
+    "piano-pro-entry-button": "../../components/piano-pro-entry-button"
   }
 }

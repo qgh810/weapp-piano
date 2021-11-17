@@ -1,0 +1,5 @@
+<!--components/piano-pro-entry-button/index.wxml-->
+<view
+  class="paino-pro-entry-button"
+  bindtap="onTap"
+>专业模式</view>

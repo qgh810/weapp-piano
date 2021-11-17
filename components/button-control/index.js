@@ -17,6 +17,17 @@ Component({
     buttonOffsetControlWidth: getWindowWidth() * 0.6,
   },
 
+  lifetimes: {
+    attached: function() {
+      this.setData({
+        buttonOffsetControlWidth: getWindowWidth() * 0.6,
+      })
+    },
+    detached: function() {
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
+
   /**
    * 组件的方法列表
    */

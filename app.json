@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/piano-pro/index",
-    "pages/piano/index"
+    "pages/piano/index",
+    "pages/piano-pro/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

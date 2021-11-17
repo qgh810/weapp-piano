@@ -1,0 +1,31 @@
+// components/piano-pro-entry-button/index.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    onTap: function(ev) {
+      this.toPro();
+    },
+
+    toPro: function () {
+      wx.navigateTo({
+        url: '/pages/piano-pro/index'
+      })
+    },
+  }
+})

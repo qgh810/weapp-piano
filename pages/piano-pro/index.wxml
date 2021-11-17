@@ -1,12 +1,14 @@
 <!-- 钢琴页面 -->
 <view class="piano-pro-root">
   <button-control
+    wx:if="{{ready}}"
     MUSIC_NAMES="{{MUSIC_NAMES}}"
     offset="{{offset}}"
     bind:offsetChange="onOffsetChange"
   />
 
   <piano-buttons
+    wx:if="{{ready}}"
     containerId="pro-piano-buttons"
     musicNames="{{MUSIC_NAMES}}"
     width="{{buttonsWidth}}"
