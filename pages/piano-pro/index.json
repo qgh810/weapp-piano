@@ -1,7 +1,11 @@
 {
   "pageOrientation": "landscape",
+  "navigationBarTitleText": "全键模式",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "piano-buttons": "../../components/piano-buttons",
-    "button-offset-control": "../../components/button-offset-control"
+    "button-control": "../../components/button-control"
   }
 }

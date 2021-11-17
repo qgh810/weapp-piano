@@ -2,7 +2,7 @@
   <view 
     id="{{containerId}}"
     class="piano-buttons"
-    style="height: {{height}}px; width: {{width}}px"
+    style="height: {{height}}px; width: {{width}}px; margin-left: -{{scrollLeft}}px"
     bindtouchstart="onButtonTouchstart"
     bindtouchmove="onButtonTouchmove"
     bindtouchend="onButtonTouchend"
@@ -16,7 +16,7 @@
       class="button {{item.type}} {{activeButtons.indexOf(item.name) > -1 ? 'active' : ''}}"
       style="{{item.style}}"
     >
-      <text class="text" wx:if="{{playable && item.name === 'C4'}}">{{item.name}}</text>
+      <text class="text" wx:if="{{playable}}">{{item.name}}</text>
     </view>
 
     <view wx:if="{{!playable}}" class="mask"></view>

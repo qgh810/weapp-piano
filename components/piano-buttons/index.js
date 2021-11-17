@@ -53,6 +53,11 @@ Component({
       type: Boolean,
       value: true,
     },
+
+    offset: {
+      type: Number,
+      value: 0,
+    }
   },
 
   /**
@@ -62,6 +67,7 @@ Component({
     buttons: [],
     activeButtons: [],
     rootRect: null,
+    scrollLeft: 0,
   },
   // 组件数据字段监听器，用于监听 properties 和 data 的变化
   observers: {
@@ -74,6 +80,12 @@ Component({
 
     'activeButtons': function() {
       this.initButtons();
+    },
+
+    'offset, width': function(offset, width) {
+      this.setData({
+        scrollLeft: width * offset,
+      })
     }
   },
   lifetimes: {
@@ -96,7 +108,6 @@ Component({
     initRootRect: async function() {
       const containerId = this.properties.containerId;
       const rootRect = await this.getRect(containerId);
-      console.log(rootRect, containerId)
       this.setData({
         rootRect,
       })

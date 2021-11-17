@@ -1,19 +1,16 @@
 <!-- 钢琴页面 -->
 <view class="piano-pro-root">
-  <button-offset-control
+  <button-control
     MUSIC_NAMES="{{MUSIC_NAMES}}"
-    width="{{buttonOffsetControlWidth}}"
-    height="{{50}}"
-    showWhiteButtonsCount="{{14}}"
-    startWhiteButtonIndex="{{12}}"
+    offset="{{offset}}"
+    bind:offsetChange="onOffsetChange"
   />
 
-  <view class="buttons-container">
-    <piano-buttons
-      containerId="pro-piano-buttons"
-      musicNames="{{MUSIC_NAMES}}"
-      width="{{buttonsWidth}}"
-      height="{{buttonsHeight}}"
-    />
-  </view>
+  <piano-buttons
+    containerId="pro-piano-buttons"
+    musicNames="{{MUSIC_NAMES}}"
+    width="{{buttonsWidth}}"
+    height="{{buttonsHeight}}"
+    offset="{{offset}}"
+  />
 </view>

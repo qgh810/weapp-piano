@@ -8,8 +8,8 @@ Component({
     MUSIC_NAMES: Array,
     width: Number,
     height: Number,
-    startWhiteButtonIndex: Number,
-    showWhiteButtonsCount: Number,
+    offset: Number, // 0 ~ 1
+    showSize: Number, // 0 ~ 1
   },
 
   /**
@@ -20,22 +20,20 @@ Component({
     highlightOffsetLeft: 50,
     highlightWidth: 0,
     rootRect: null,
+    lastOffset: null,
   },
 
   // 组件数据字段监听器，用于监听 properties 和 data 的变化
   observers: {
-    'showWhiteButtonsCount': function(count) {
-      const whiteButtonsCount = this.properties.MUSIC_NAMES.filter(item => item.length === 2).length;
-      const width = this.properties.width;
+    'showSize, width': function(showSize, width) {
       this.setData({
-        highlightWidth: width * (count / whiteButtonsCount),
+        highlightWidth: width * showSize,
       })
     },
-    'startWhiteButtonIndex': function(index) {
-      const whiteButtonsCount = this.properties.MUSIC_NAMES.filter(item => item.length === 2).length;
-      const width = this.properties.width;
+
+    'offset, width': function(offset, width) {
       this.setData({
-        highlightOffsetLeft: width * ((index) / whiteButtonsCount),
+        highlightOffsetLeft: width * offset,
       })
     }
   },
@@ -62,7 +60,6 @@ Component({
       const touch = ev.touches[0];
       if (!touch) return;
 
-      const currentTarget = ev.currentTarget;
       const clientX = touch.clientX;
       const highlightWidth = this.data.highlightWidth;
       const x = clientX - rootRect.left;
@@ -73,10 +70,21 @@ Component({
       } else if (left + highlightWidth > containerWidth) {
         left = containerWidth - highlightWidth;
       }
+      const offset = left / containerWidth;
+      const lastOffset = this.data.lastOffset;
       this.setData({
         highlightOffsetLeft: left,
+        lastOffset: offset,
       })
-      this.triggerEvent('offsetChange', left / containerWidth);
+
+      if (offset !== lastOffset) {
+        console.log({
+          containerWidth,
+          left,
+          offset,
+        })
+        this.triggerEvent('offsetChange', offset);
+      }
     },
 
     getRect () {

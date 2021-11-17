@@ -1,2 +1,13 @@
 <!--components/button-control/index.wxml-->
-<text>components/button-control/index.wxml</text>
+<view class="button-control-container">
+  <text class="size-control subtract">-</text>
+  <text class="size-control add">+</text>
+  <button-offset-control
+    MUSIC_NAMES="{{MUSIC_NAMES}}"
+    width="{{buttonOffsetControlWidth}}"
+    height="{{40}}"
+    showSize="{{1 / 3}}"
+    offset="{{offset}}"
+    bind:offsetChange="onOffsetChange"
+  />
+</view>

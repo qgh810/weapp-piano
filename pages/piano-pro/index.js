@@ -56,6 +56,7 @@ const MUSIC_NAMES = [
   'A5',
   'As5',
   'B5',
+
   'C6',
   'Cs6',
   'D6',
@@ -78,9 +79,10 @@ Page({
    */
   data: {
     MUSIC_NAMES: [...MUSIC_NAMES],
-    buttonsHeight: getWindowHeight() / 2,
-    buttonsWidth: getWindowWidth() * 2,
-    buttonOffsetControlWidth: getWindowWidth() * 0.5,
+    buttonsHeight: getWindowHeight() * 0.7,
+    buttonsWidth: getWindowWidth() * 3,
+    buttonOffsetControlWidth: getWindowWidth() * 0.7,
+    offset: 1 / 3,
   },
 
   /**
@@ -132,4 +134,11 @@ Page({
    */
   onShareAppMessage: function () {
   },
+
+  onOffsetChange: function (ev) {
+    const offset = ev.detail;
+    this.setData({
+      offset,
+    })
+  }
 })
