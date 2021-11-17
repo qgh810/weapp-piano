@@ -1,5 +1,4 @@
 {
-  "disableScroll": true,
   "usingComponents": {
     "piano-buttons": "../../components/piano-buttons",
     "piano-board": "../../components/piano-board"

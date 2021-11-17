@@ -78,11 +78,6 @@ Component({
       })
 
       if (offset !== lastOffset) {
-        console.log({
-          containerWidth,
-          left,
-          offset,
-        })
         this.triggerEvent('offsetChange', offset);
       }
     },

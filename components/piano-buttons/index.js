@@ -86,6 +86,7 @@ Component({
       this.setData({
         scrollLeft: width * offset,
       })
+      this.initRootRect();
     }
   },
   lifetimes: {
@@ -286,12 +287,11 @@ Component({
     },
 
     hittest(ev) {
-      const { currentTarget, touches } = ev;
+      const { touches } = ev;
       const offsetLeft = this.data.rootRect.left;
       const offsetTop = this.data.rootRect.top;
 
       const { clientX, clientY } = touches[0];
-
       const x = clientX - offsetLeft;
       const y = clientY - offsetTop;
       const butttons = this.data.buttons;
