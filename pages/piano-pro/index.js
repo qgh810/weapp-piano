@@ -1,6 +1,23 @@
 import { getWindowHeight, getWindowWidth } from '../../utils/index';
 
 const MUSIC_NAMES = [
+  'A1',
+  'As1',
+  'B1',
+  
+  'C2',
+  'Cs2',
+  'D2',
+  'Ds2',
+  'E2',
+  'F2',
+  'Fs2',
+  'G2',
+  'Gs2',
+  'A2',
+  'As2',
+  'B2',
+
   'C3',
   'Cs3',
   'D3',
@@ -13,6 +30,7 @@ const MUSIC_NAMES = [
   'A3',
   'As3',
   'B3',
+
   'C4',
   'Cs4',
   'D4',
@@ -25,6 +43,7 @@ const MUSIC_NAMES = [
   'A4',
   'As4',
   'B4',
+
   'C5',
   'Cs5',
   'D5',
@@ -37,6 +56,20 @@ const MUSIC_NAMES = [
   'A5',
   'As5',
   'B5',
+  'C6',
+  'Cs6',
+  'D6',
+  'Ds6',
+  'E6',
+  'F6',
+  'Fs6',
+  'G6',
+  'Gs6',
+  'A6',
+  'As6',
+  'B6',
+
+  'C7',
 ]
 
 Page({
@@ -46,7 +79,8 @@ Page({
   data: {
     MUSIC_NAMES: [...MUSIC_NAMES],
     buttonsHeight: getWindowHeight() / 2,
-    buttonsWidth: getWindowWidth() - 50,
+    buttonsWidth: getWindowWidth() * 2,
+    buttonOffsetControlWidth: getWindowWidth() * 0.5,
   },
 
   /**

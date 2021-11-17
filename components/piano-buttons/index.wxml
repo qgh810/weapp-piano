@@ -8,6 +8,7 @@
     bindtouchend="onButtonTouchend"
     >
     <view class="border-top"></view>
+    <view wx:if="{{isShowShadow === false}}" class="shadow"></view>
     <view
       wx:for="{{buttons}}"
       wx:key="name"
@@ -15,6 +16,8 @@
       class="button {{item.type}} {{activeButtons.indexOf(item.name) > -1 ? 'active' : ''}}"
       style="{{item.style}}"
     >
-      <text class="text" wx:if="{{item.name === 'C4'}}">{{item.name}}</text>
+      <text class="text" wx:if="{{playable && item.name === 'C4'}}">{{item.name}}</text>
     </view>
+
+    <view wx:if="{{!playable}}" class="mask"></view>
   </view>

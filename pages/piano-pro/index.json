@@ -1,6 +1,7 @@
 {
   "pageOrientation": "landscape",
   "usingComponents": {
-    "piano-buttons": "../../components/piano-buttons"
+    "piano-buttons": "../../components/piano-buttons",
+    "button-offset-control": "../../components/button-offset-control"
   }
 }

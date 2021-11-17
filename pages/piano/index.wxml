@@ -7,8 +7,6 @@
       musicNames="{{MUSIC_NAMES}}"
       width="{{buttonsWidth}}"
       height="{{buttonsHeight}}"
-      offsetLeft="{{0}}"
-      offsetTop="{{boardHeight}}"
     />
   </view>
 

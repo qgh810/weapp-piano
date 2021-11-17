@@ -1,0 +1,21 @@
+<!--components/button-offset-control/index.wxml-->
+<view
+  id="{{ID}}"
+  class="button-offset-control-container"
+  style="width: {{width}}px; height: {{height}}px;"
+  bindtouchstart="onTouchEvent"
+  bindtouchmove="onTouchEvent"
+>
+  <piano-buttons
+    musicNames="{{MUSIC_NAMES}}"
+    width="{{width}}"
+    height="{{height}}"
+    playable="{{false}}"
+    isShowShadow="{{false}}"
+  />
+
+  <view
+    class="highlight"
+    style="left: {{highlightOffsetLeft}}px; width: {{highlightWidth}}px"
+  ></view>
+</view>

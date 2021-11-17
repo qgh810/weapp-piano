@@ -28,6 +28,7 @@
 
 const MARGIN = 2;
 const BASE_URL = 'https://cdn.jsdelivr.net/gh/warpprism/cdn@latest/autopiano/static/samples/bright_piano/';
+const DEFAULT_ID = 'BUTTONS'
 
 Component({
   // options: {
@@ -37,11 +38,21 @@ Component({
    * 组件的对外属性，是属性名到属性设置的映射表
    */
   properties: {
+    containerId: {
+      type: String,
+      value: DEFAULT_ID,
+    },
     musicNames: Array, // string[]
     width: Number,
     height: Number,
-    offsetLeft: Number,
-    offsetTop: Number,
+    playable: {
+      type: Boolean,
+      value: true,
+    },
+    isShowShadow: {
+      type: Boolean,
+      value: true,
+    },
   },
 
   /**
@@ -50,12 +61,15 @@ Component({
   data: {
     buttons: [],
     activeButtons: [],
+    rootRect: null,
   },
   // 组件数据字段监听器，用于监听 properties 和 data 的变化
   observers: {
     'musicNames': function() {
       this.initButtons();
-      this.preLoadAudio();
+      if (this.properties.playable !== false) {
+        this.preLoadAudio();
+      }
     },
 
     'activeButtons': function() {
@@ -70,13 +84,24 @@ Component({
       // 在组件实例被从页面节点树移除时执行
     },
   },
+
+  ready: function () {
+    this.initRootRect();
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
-    check(name) {
-      return '123123';
+    initRootRect: async function() {
+      const containerId = this.properties.containerId;
+      const rootRect = await this.getRect(containerId);
+      console.log(rootRect, containerId)
+      this.setData({
+        rootRect,
+      })
     },
+
     initButtons() {
       const {
         width: buttonsWidth,
@@ -212,6 +237,8 @@ Component({
     },
   
     playAudio(name) {
+      if (this.properties.playable === false) return;
+
       const audio = createAudioByName(name);
       audio.play();
       // audio.onEnded(() => {
@@ -249,7 +276,9 @@ Component({
 
     hittest(ev) {
       const { currentTarget, touches } = ev;
-      const { offsetLeft = 0, offsetTop = 0 } = this.properties;
+      const offsetLeft = this.data.rootRect.left;
+      const offsetTop = this.data.rootRect.top;
+
       const { clientX, clientY } = touches[0];
 
       const x = clientX - offsetLeft;
@@ -281,7 +310,15 @@ Component({
       } else {
         return null;
       }
-    }
+    },
+
+    getRect (id) {
+      return new Promise((resolve) => {
+        wx.createSelectorQuery().in(this).select('#' + id).boundingClientRect(function(rect){
+          resolve(rect);
+        }).exec()
+      })
+    },
     //回退
     // open(){
     //   this.setData({
