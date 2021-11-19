@@ -16,7 +16,7 @@
       class="button {{item.type}} {{activeButtons.indexOf(item.name) > -1 ? 'active' : ''}}"
       style="{{item.style}}"
     >
-      <text class="text" wx:if="{{playable}}">{{item.name}}</text>
+      <text class="text" wx:if="{{showText}}">{{item.name}}</text>
     </view>
 
     <view wx:if="{{!playable}}" class="mask"></view>

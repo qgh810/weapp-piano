@@ -46,6 +46,10 @@ Component({
     musicNames: Array, // string[]
     width: Number,
     height: Number,
+    showText: {
+      type: Boolean,
+      value: false,
+    },
     playable: {
       type: Boolean,
       value: true,

@@ -14,5 +14,6 @@
     width="{{buttonsWidth}}"
     height="{{buttonsHeight}}"
     offset="{{offset}}"
+    showText="{{true}}"
   />
 </view>
