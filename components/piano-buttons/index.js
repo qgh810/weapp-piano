@@ -361,10 +361,19 @@ Component({
   }
 })
 
+// 缓存音频对象
+const audios = {}
 function createAudioByName(name) {
-  const audio = wx.createInnerAudioContext({ useWebAudioImplement: true });
-  audio.src = getUrlByName(name);
-  return audio;
+  if (audios[name]) {
+    const audio = audios[name];
+    audio.stop();
+    return audio;
+  } else {
+    const audio = wx.createInnerAudioContext({ useWebAudioImplement: true });
+    audio.src = getUrlByName(name);
+    audios[name] = audio;
+    return audio;
+  }
 }
 
 function getUrlByName(name) {
