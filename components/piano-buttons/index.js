@@ -364,14 +364,15 @@ Component({
 // 缓存音频对象
 const audios = {}
 function createAudioByName(name) {
-  if (audios[name]) {
-    const audio = audios[name];
-    audio.stop();
-    return audio;
-  } else {
+  // 当音频不存在或者才刚开始播放的时候，重新创建音频，否则复用音频
+  if (!audios[name] || (audios[name] && audios[name].currentTime <= 0.5)) {
     const audio = wx.createInnerAudioContext({ useWebAudioImplement: true });
     audio.src = getUrlByName(name);
     audios[name] = audio;
+    return audio;
+  } else {
+    const audio = audios[name];
+    audio.stop();
     return audio;
   }
 }
