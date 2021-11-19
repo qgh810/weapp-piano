@@ -1,14 +1,18 @@
 /* components/piano-pro-entry-button/index.wxss */
 .paino-pro-entry-button {
   position: fixed;
-  right: 0;
-  top: 0;
+  right: 2vw;
+  top: 2vw;
   width: 14vw;
   height: 14vw;
-  background: red;
+  background: #222;
+  color: #fff;
   z-index: 10;
   border-radius: 50%;
   text-align: center;
   padding: 2vw;
   box-sizing: border-box;
+  border: 1vw solid rgba(62, 189, 201, 1);
+  font-size: 3vw;
+  box-shadow: 0.1vw 0.1vw 1vw 0vw rgba(0 ,0, 0, 0.5);
 }

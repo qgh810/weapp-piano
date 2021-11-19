@@ -29,6 +29,7 @@
 const MARGIN = 2;
 const BASE_URL = 'https://cdn.jsdelivr.net/gh/warpprism/cdn@latest/autopiano/static/samples/bright_piano/';
 const DEFAULT_ID = 'BUTTONS'
+const ACTIVE_COLOR = '#3ebdc9'
 
 Component({
   // options: {
@@ -168,7 +169,7 @@ Component({
         }
 
         if (isActive) {
-          backgroundColor = '#3ebdc9';
+          backgroundColor = ACTIVE_COLOR;
         }
         
         const style = [

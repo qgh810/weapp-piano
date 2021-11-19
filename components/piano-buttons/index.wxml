@@ -8,7 +8,7 @@
     bindtouchend="onButtonTouchend"
     >
     <view class="border-top"></view>
-    <view wx:if="{{isShowShadow === false}}" class="shadow"></view>
+    <view wx:if="{{isShowShadow}}" class="shadow"></view>
     <view
       wx:for="{{buttons}}"
       wx:key="name"

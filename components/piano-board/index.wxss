@@ -2,6 +2,7 @@
 .piano-board-container {
   position: relative;
   height: 80vw;
+  max-height: 40vh;
 }
 
 .piano-board {
