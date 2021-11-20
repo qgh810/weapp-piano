@@ -58,10 +58,13 @@ Component({
       type: Boolean,
       value: true,
     },
-
     offset: {
       type: Number,
       value: 0,
+    },
+    canVibrate: {
+      type: Boolean,
+      value: true,
     }
   },
 
@@ -91,6 +94,7 @@ Component({
       this.setData({
         scrollLeft: width * offset,
       })
+
       this.initRootRect();
       this.initButtons();
     }
@@ -259,6 +263,10 @@ Component({
 
       const audio = createAudioByName(name);
       audio.play();
+
+      if (this.properties.canVibrate) {
+        wx.vibrateShort();
+      }
       // audio.onEnded(() => {
       //   audio.destroy();
       // })
@@ -362,12 +370,24 @@ Component({
 })
 
 // 缓存音频对象
-const audios = {}
+const audios = {};
+// 不存在的话就创建，已存在并且播放事件小于0.5的时候，也
 function createAudioByName(name) {
   // 当音频不存在或者才刚开始播放的时候，重新创建音频，否则复用音频
-  if (!audios[name] || (audios[name] && audios[name].currentTime <= 0.5)) {
+  const isNotAudio = !audios[name];
+  const isJustStartedAudio = audios[name] && audios[name].currentTime <= 0.5;
+
+  if (isNotAudio || isJustStartedAudio) {
     const audio = wx.createInnerAudioContext({ useWebAudioImplement: true });
     audio.src = getUrlByName(name);
+
+    if (isJustStartedAudio) {
+      // 500 毫秒后销毁那个没被停止的音频
+      const oldAudios = audios[name];
+      setTimeout(() => {
+        oldAudios.stop()
+      }, 500)
+    }
     audios[name] = audio;
     return audio;
   } else {
