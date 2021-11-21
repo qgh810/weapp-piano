@@ -146,7 +146,7 @@ Page({
   initData() {
     this.setData({
       MUSIC_NAMES: [...MUSIC_NAMES],
-      buttonsHeight: getWindowHeight() * 0.7,
+      buttonsHeight: getWindowHeight() * 0.75,
       buttonsWidth: getWindowWidth() * 3,
       offset: 1 / 3,
       ready: true,

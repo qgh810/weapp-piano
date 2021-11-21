@@ -1,4 +1,4 @@
-import { getWindowWidth } from "../../utils/index";
+import { getWindowWidth, getWindowHeight } from "../../utils/index";
 
 // components/button-control/index.js
 Component({
@@ -15,12 +15,14 @@ Component({
    */
   data: {
     buttonOffsetControlWidth: getWindowWidth() * 0.6,
+    buttonOffsetControlHeight: getWindowHeight() * 0.1,
   },
 
   lifetimes: {
     attached: function() {
       this.setData({
         buttonOffsetControlWidth: getWindowWidth() * 0.6,
+        buttonOffsetControlHeight: getWindowHeight() * 0.1,
       })
     },
     detached: function() {

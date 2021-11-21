@@ -5,7 +5,7 @@
   <button-offset-control
     MUSIC_NAMES="{{MUSIC_NAMES}}"
     width="{{buttonOffsetControlWidth}}"
-    height="{{40}}"
+    height="{{buttonOffsetControlHeight}}"
     showSize="{{1 / 3}}"
     offset="{{offset}}"
     bind:offsetChange="onOffsetChange"
