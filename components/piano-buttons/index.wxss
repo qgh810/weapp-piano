@@ -7,7 +7,6 @@
   margin: 0 auto;
   background: #191919;
   z-index: 1;
-  transition: margin ease 0.1s;
 }
 
 .piano-buttons .border-top {
